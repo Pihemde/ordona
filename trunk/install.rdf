@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+	<Description about="urn:mozilla:install-manifest">
+		<em:id>domainclassifier@hinatafr.net</em:id>
+		<em:version>0.2</em:version>
+		<em:type>2</em:type>
+		<em:iconURL>chrome://domainclassifier/skin/32x32.gif</em:iconURL>
+
+		<!-- Preferences -->
+<!-- 		<em:optionsURL>chrome://domainclassifier/content/gui/preferencesOverlays.xul</em:optionsURL> -->
+
+		<em:targetApplication>
+			<Description>
+				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+				<em:minVersion>3.0</em:minVersion>
+				<em:maxVersion>3.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+
+		<em:name>DomainClassifier</em:name>
+		<em:description>Automatically creates folders for your mails according to sender's address domain and moves mails to it.</em:description>
+		<em:creator>Pierre-Marie Dhaussy</em:creator>
+		<em:homepageURL>http://www.hinatafr.net/domainclassifier/</em:homepageURL>
+	</Description>
+</RDF>

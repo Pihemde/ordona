@@ -1,0 +1,5 @@
+<!ENTITY caption.label "Préférences de Domain Classifier">
+<!ENTITY account.label "Compte">
+<!ENTITY folder.label "Dossier">
+<!ENTITY messagecount.pre.label "Ne ranger les mails des domaines pour lesquels il y a au moins">
+<!ENTITY messagecount.post.label "mail(s)">

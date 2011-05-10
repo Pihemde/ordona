@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://messenger/skin/dialogs.css" type="text/css"?>
+<dialog xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    title="Domaine à exclure" onload="onLoad();" ondialogaccept="return onOKExclusion();">
+    <!-- Core scripts -->
+    <script type="application/javascript" src="chrome://domainclassifier/content/constants.js" />
+    <script type="application/javascript" src="chrome://domainclassifier/content/core/lib/utils.js" />
+        
+    <!-- GUI scripts -->
+    <script type="application/javascript" src="chrome://domainclassifier/content/gui/exclusionDialog.js" />
+
+    <vbox>
+        <label value="Nom du domaine" control="name" />
+        <textbox id="name" oninput="doEnabling();" />
+    </vbox>
+    <separator />
+</dialog>

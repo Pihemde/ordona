@@ -1,0 +1,29 @@
+#domainclassifierToolbarbutton {
+	list-style-image: url("chrome://domainclassifier/skin/24x24.gif");
+}
+
+toolbar[iconsize="small"] #domainclassifierToolbarbutton {
+	list-style-image: url("chrome://domainclassifier/skin/16x16.gif");
+}
+
+.domainclassifier-statusbar-width {
+	width: 15em;
+}
+
+.domainclassifier-statusbar-opacity {
+	opacity: .20;
+}
+
+.domainclassifier-grid {
+	margin-left:10px;
+	margin-right:20px;
+	margin-top:10px;
+}
+
+.domainclassifier-spacer {
+	height:15px;
+}
+
+.domainclassifier-enclosing-vbox {
+	margin: 10px;
+}

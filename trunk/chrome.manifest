@@ -1,0 +1,21 @@
+#
+# Manifest
+#
+
+#content packagename uri/to/files/ [flags]
+content	domainclassifier						chrome/content/
+
+#skin packagename skinname uri/to/files/ [flags]
+skin	domainclassifier	domainclassifier	chrome/skin/
+
+#locale packagename localename uri/to/files/ [flags]
+locale	domainclassifier	fr-FR	chrome/locale/fr-FR/
+#locale	domainclassifier	en-US	chrome/locale/en-US
+
+#overlay chrome://URI-to-be-overlaid chrome://overlay-URI [flags]
+overlay	chrome://messenger/content/messenger.xul	chrome://domainclassifier/content/gui/messengerOverlay.xul
+overlay	chrome://messenger/content/preferences/preferences.xul	chrome://domainclassifier/content/gui/preferencesOverlay.xul
+
+# Surcharge de la css de la fenetre contenant l'ensemble des icones mettables sur la barre d'outils.
+#style chrome://URI-to-style chrome://stylesheet-URI [flags]
+style	chrome://global/content/customizeToolbar.xul	chrome://domainclassifier/skin/style.css
