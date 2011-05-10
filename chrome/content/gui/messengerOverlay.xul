@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://domainclassifier/locale/messenger.dtd">
+<?xml-stylesheet href="chrome://domainclassifier/skin/style.css" type="text/css"?>
+<overlay id="domain_classifier_messenger_overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <!-- Core scripts -->
+    <script type="application/javascript" src="chrome://domainclassifier/content/constants.js" />
+    <script type="application/javascript" src="chrome://domainclassifier/content/core/main.js" />
+    <script type="application/javascript" src="chrome://domainclassifier/content/core/domainclassifier.js" />
+    <script type="application/javascript" src="chrome://domainclassifier/content/core/lib/mail.js" />
+    <script type="application/javascript" src="chrome://domainclassifier/content/core/lib/utils.js" />
+
+    <!-- GUI scripts -->
+    <script type="application/javascript" src="chrome://domainclassifier/content/gui/messengerOverlay.js" />
+    <script type="application/javascript">
+        onLoad();
+    </script>
+
+    <toolbox id="mail-toolbox" class="toolbox-top" mode="full">
+        <toolbarpalette id="MailToolbarPalette">
+            <toolbarbutton id="domainclassifierToolbarbutton" class="toolbarbutton-1" label="&toolbar.label;"
+                tooltiptext="&toolbar.tooltip;" oncommand="main();" />
+        </toolbarpalette>
+    </toolbox>
+</overlay>

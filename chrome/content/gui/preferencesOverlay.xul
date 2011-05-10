@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://messenger/skin/accountManage.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/messenger.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/folderMenus.css" type="text/css"?>
+<!-- <!DOCTYPE overlay [ <!ENTITY % generalDTD SYSTEM "chrome://domainclassifier/locale/general.dtd"> %generalDTD; <!ENTITY 
+    % preferencesDTD SYSTEM "chrome://domainclassifier/locale/preferences.dtd"> %preferencesDTD; ]> -->
+<!DOCTYPE overlay SYSTEM "chrome://domainclassifier/locale/preferences.dtd">
+<overlay id="domainclassifier_preferences_overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <!-- Core scripts -->
+    <script type="application/javascript" src="chrome://domainclassifier/content/constants.js" />
+    <script type="application/javascript" src="chrome://domainclassifier/content/core/lib/mail.js" />
+    <script type="application/javascript" src="chrome://domainclassifier/content/core/lib/utils.js" />
+
+    <!-- GUI scripts -->
+    <script type="application/javascript" src="chrome://domainclassifier/content/gui/preferencesOverlay.js" />
+
+    <!-- Merge with the MailPreferences Window -->
+    <prefwindow id="MailPreferences">
+
+        <!-- Create a new pane (tab) for HP Scheduler. -->
+        <prefpane id="domainClassifierPane" label="Domain Classifier" image="chrome://domainclassifier/skin/32x32.gif"
+            onpaneload="init();">
+
+            <!-- Intermediary between GUI and preferences system -->
+            <preferences>
+                <!-- see the next section for more information -->
+                <preference id="messagecount" name="extensions.domainclassifier.messagecount" type="int" />
+            </preferences>
+
+            <!-- GUI Elements... -->
+
+            <tabbox id="displayPrefs" flex="1">
+                <tabs>
+                    <tab label="General" />
+                    <tab label="Exclusions" />
+                    <tab label="Redirections" />
+                </tabs>
+
+                <tabpanels flex="1">
+
+                    <!-- **************************************** General Pane **************************************** -->
+
+                    <tabpanel orient="vertical">
+
+                        <groupbox>
+                            <caption label="&caption.label;" />
+
+                            <!-- Compte à gérer -->
+                            <hbox align="center">
+                                <label id="accountLabel" value="&account.label;" />
+                                <menulist id="accountPicker" aria-labelledby="accountLabel" oncommand="accountChange(event)">
+                                    <menupopup id="accountPopup" class="menulist-menupopup" type="folder"
+                                        mode="filing" expandFolders="false" />
+                                </menulist>
+
+                            </hbox>
+
+                            <!-- Dossier principal dans lequel les dossiers de domaines seront crées -->
+                            <hbox align="center">
+                                <label id="folderLabel" value="&folder.label;" />
+                                <menulist id="folderPicker" aria-labelledby="folderLabel" oncommand="folderChange(event)">
+                                    <menupopup id="folderPopup" class="menulist-menupopup" type="folder" mode="filing"
+                                        showFileHereLabel="true" fileHereLabel="Choisir ce dossier" />
+                                </menulist>
+                            </hbox>
+
+
+                            <!-- Nombre de mails minimum avant prise en charge -->
+                            <hbox align="center">
+                                <label id="messagecountPreLabel" value="&messagecount.pre.label;" />
+                                <textbox id="messagecountField" size="2" type="number" max="99" preference="messagecount"
+                                    aria-labelledby="messagecountPreLabel messagecountField messagecountPostLabel" />
+                                <label id="messagecountPostLabel" value="&messagecount.post.label;" />
+                            </hbox>
+                        </groupbox>
+
+                    </tabpanel>
+
+
+                    <separator />
+                    <!-- **************************************** Exclusion Pane **************************************** -->
+
+                    <tabpanel orient="vertical">
+                        <label control="exclusionList">Liste des domaines à exclure</label>
+                        <hbox>
+                            <listbox id="exclusionList" flex="1" rows="10" ondblclick="editExclusion();" />
+                            <vbox>
+                                <button label="Ajouter" oncommand="onButtonAddExclusion();" />
+                                <button label="Modifier" oncommand="onButtonEditExclusion();" />
+                                <button label="Supprimer" oncommand="onButtonRemoveExclusion();" />
+                            </vbox>
+                        </hbox>
+                    </tabpanel>
+
+
+                    <separator />
+                    <!-- **************************************** Routage Pane **************************************** -->
+
+                    <tabpanel orient="vertical">
+                        <label control="mappingList">Routage</label>
+                        <hbox>
+                            <listbox id="mappingList" flex="1" rows="10" ondblclick="editMapping();" />
+                            <vbox>
+                                <button label="Ajouter" oncommand="onButtonAddMapping();" />
+                                <button label="Modifier" oncommand="onButtonEditMapping();" />
+                                <button label="Supprimer" oncommand="onButtonRemoveMapping();" />
+                            </vbox>
+                        </hbox>
+                    </tabpanel>
+
+                </tabpanels>
+
+            </tabbox>
+        </prefpane>
+    </prefwindow>
+</overlay>
